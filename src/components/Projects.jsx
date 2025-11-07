@@ -2,19 +2,18 @@ import React, { useState,useEffect } from 'react'
 import { assets, projectsData } from '../assets/assets'
 
 const Projects = () => {
-    const [currentIndex,setCurrentIndex]=useState(0)
+    const [currentIndex,setCurrentIndex] = useState(0)
     const [cardstoShow, setcardstoShow] = useState(1)
 
     useEffect(() => {
       const updateCardsToShow = ()=>{
          if(window.innerWidth >= 1024){
             setcardstoShow(projectsData.length)
-         }
+         } 
          else{
             setcardstoShow(1)
          }
       }
-
          updateCardsToShow();
          window.addEventListener('resize',updateCardsToShow);
          return ()=> window.removeEventListener('resize',updateCardsToShow)
