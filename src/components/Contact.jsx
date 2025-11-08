@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { toast } from 'react-toastify';
 
 
 const Contact = () => {
@@ -10,11 +11,12 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("xanawoew");
   useEffect(() => {
    if (state.succeeded) {
-      alert("Form Submitted Successfully")
+      toast.success("Form Submitted Successfully")
     //   return <p className='text-center'>Your Message has been sent Successfully</p>; 
+  }else if(state.errors && state.errors.length > 0) {
+    toast.error("Error in Sending Message")
   }
-
-  }, [state.succeeded])
+  }, [state])
   
   
   return (
