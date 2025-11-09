@@ -6,9 +6,6 @@ import { motion } from 'framer-motion';
 
 
 const Contact = () => {
-    
-
-
   const [state, handleSubmit] = useForm("xanawoew");
   useEffect(() => {
    if (state.succeeded) {
@@ -18,8 +15,6 @@ const Contact = () => {
     toast.error("Error in Sending Message")
   }
   }, [state])
-  
-  
   return (
     <motion.div 
     initial= {{opacity:0,x:-200}}
